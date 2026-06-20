@@ -1,0 +1,135 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "padding": {
+            "top": 1
+        }
+    },
+    "display": {	
+        "separator": " "
+    },
+    "modules": [
+	/*{
+	"type": "custom",
+	"format": "     ______           __          __  _      "
+	},
+	{
+	"type": "custom",
+	"format": "    / ____/___ ____  / /__  _____/ /_(_)___ _ "
+	},
+	{
+	"type": "custom",
+	"format": "   / /   / __ `/ _ \\/ / _ \\/ ___/ __/ / __ `/ "
+	},
+	{
+	"type": "custom",
+	"format": "  / /___/ /_/ /  __/ /  __(__  ) /_/ / /_/ / " 
+	},
+	{
+	"type": "custom",
+	"format": "  \\____/\\__,_/\\___/_/\\___/____/\\__/_/\\__,_/  " 
+	},*/
+	{
+	"type": "custom",
+	"format": "  __ _  ___  _ __  _______"
+	},
+	{
+	"type": "custom",
+	"format":" / _` |/ _ \\| '_ \\|_  / _ \\"
+	},
+	{
+	"type": "custom",
+	"format":"| (_| | (_) | | | |/ / (_) |"
+	},
+	{
+	"type": "custom",
+	"format":" \\__, |\\___/|_| |_/___\\___/"
+	},
+	{
+	"type": "custom",
+	"format":" |___/"
+	},
+       
+                {
+                    "key": "╭───────────╮",
+                    "type": "custom"
+                },
+                {
+                    "key": "│ {#31} user    {#keys}│",
+                    "type": "title",
+                    "format": "{user-name}"
+                },
+                {
+                    "key": "│ {#32}󰇅 host    {#keys}│",
+                    "type": "title",
+                    "format": "{host-name}"
+                },
+                {
+                    "key": "│ {#33}󰅐 uptime  {#keys}│",
+                    "type": "uptime"
+                },
+                {
+                    "key": "│ {#34}{icon} distro  {#keys}│",
+                    "type": "os"
+                },
+                {
+                    "key": "│ {#35} kernel  {#keys}│",
+                    "type": "kernel"
+                },
+                {
+                    "key": "│ {#36}󰇄 WM      {#keys}│",
+                    "type": "WM"
+                },
+        	{
+                    "key": "│ {#31} term    {#keys}│",
+                    "type": "terminal"
+                },
+                {
+                    "key": "│ {#32} shell   {#keys}│",
+                    "type": "shell"
+                },
+                {
+                    "key": "│ {#33}󰍛 cpu     {#keys}│",
+                    "type": "cpu",
+                    "showPeCoreCount": true
+                },
+        	    {
+        	    	"key": "│ {#34}󰍛 gpu     {#keys}│",
+        	    	"type": "gpu" 
+        		},
+                {
+                    "key": "│ {#35}󰉉 disk    {#keys}│",
+                    "type": "disk",
+                    "folders": "/"
+                },
+                {
+                    "key": "│ {#36} memory  {#keys}│",
+                    "type": "memory"
+                },
+                {
+                    "key": "│ {#37}󰩟 network {#keys}│",
+                    "type": "localip",
+                    "format": "{ipv4} ({ifname})"
+                },
+                {
+                    "key": "├───────────┤",
+                    "type": "custom"
+                },
+                {
+                    "type": "media",
+                    "key": "│ {#38}♪ music   {#keys}│",
+                    "format": "{?artist}{artist} - {?}{title}",
+                    "keyColor": "cyan"
+                },
+        
+                {
+                    "key": "│ {#39} colors  {#keys}│",
+                    "type": "colors",
+                    "symbol": "circle"
+                },
+                {
+                    "key": "╰───────────╯",
+                    "type": "custom"
+                 }
+    ]
+}
