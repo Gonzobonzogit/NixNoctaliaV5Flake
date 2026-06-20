@@ -15,21 +15,37 @@ nixConfig = {
 };
 
   inputs = {
+      # --- Misc. extra NixPkgs ---
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+      # --- Terminal ScreenSaver ---
     drift.url = "github:phlx0/drift";
-      zen-browser = {
+      # --- Zen Browser nixpkg ---
+    zen-browser = {
         url = "github:youwen5/zen-browser-flake";
         inputs.nixpkgs.follows = "nixpkgs";
-      }; 
-      home-manager = {
+    }; 
+
+      # --- Home Manager ---
+    home-manager = {
         url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
-      };
-      noctalia = {
+    };
+
+      # --- NoctaliaV5 ---
+    noctalia = {
        url = "github:noctalia-dev/noctalia";
        inputs.nixpkgs.follows = "nixpkgs";
-      };
+    };
+
+      # --- Noctalia theme for greetd ---
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
+
+  
 
   outputs = { self, nixpkgs, home-manager, zen-browser, noctalia, ... }@inputs: {
     nixosConfigurations.NERV = nixpkgs.lib.nixosSystem {

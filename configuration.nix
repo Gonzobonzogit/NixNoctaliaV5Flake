@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    inputs.noctalia-greeter.nixosModules.default
   ];
 
   # ---------------------------------------------------------------------------
@@ -66,7 +67,9 @@
     #   { output = "HDMI-A-1"; primary = true; }
     #{ ooutput = "DP-3"; }
   ];
-
+  #--------------------------------------------------------------------------
+  # Gnome program
+  #--------------------------------------------------------------------------
   services.gnome = {
     core-apps.enable = true;
     gnome-keyring.enable = true;
@@ -75,16 +78,41 @@
     evolution-data-server.enable = true;
   };
 
+ services.desktopManager.gnome.enable = true;
+ 
   xdg.portal ={
   	enable = true;
   	extraPortals = [pkgs.xdg-desktop-portal-gtk];
   	config.common.default = "*";
   };
 
+
+  
+  services.greetd = {
+    enable = true;
+    package = pkgs.greetd;
+    restart = !(config.services.greetd.settings ? initial_session);
+  };
+
+  programs.noctalia-greeter = {
+    enable = true;
+    package = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    settings.cursor = {
+      theme = "Lyra-X";
+      size = 24;
+      package = pkgs.lyra-cursors;
+    };
+  };
   
 
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  #-------------------------------------------------------------------------
+  # GDM Service
+  #-------------------------------------------------------------------------
+  services.displayManager.gdm.enable = false;
+
+  #--------------------------------------------------------------------------
+  #Hyprland Tiling WM
+  #--------------------------------------------------------------------------
 
   programs.hyprland = {
     enable = true;
@@ -218,6 +246,7 @@
 	  (import ./pkgs/helium.nix {inherit pkgs; })
     # --- Core CLI / system ---
     pkgs.feh
+    pkgs.regreet
     pkgs.fuzzel
     pkgs.networkmanagerapplet
     pkgs.brightnessctl
